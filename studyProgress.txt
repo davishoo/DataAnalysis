@@ -1,9 +1,17 @@
+Python for Data Analysis, 2nd Edition
+
 2019-5-28
-start: p1
-end: p15
+   1st run
+       start: p1
+       end: p15
+
 
 2019-5-29
-start: p15
-end: 54
+   1st  run
+       start: p15
+       end: p54
 
 2019-5-30
+   1st run
+       start: p53
+       end: 
