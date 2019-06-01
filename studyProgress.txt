@@ -13,11 +13,7 @@ Python for Data Analysis, 2nd Edition
        start: p53
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
        end: p93
-=======
-       end: p81 
->>>>>>> parent of b7ede1b... Update studyProgress.txt
 =======
        end: p81 
 >>>>>>> parent of b7ede1b... Update studyProgress.txt
