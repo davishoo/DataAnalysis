@@ -11,4 +11,8 @@ Python for Data Analysis, 2nd Edition
 
 2019-5-30
        start: p53
+<<<<<<< HEAD
        end: p93
+=======
+       end: p81 
+>>>>>>> parent of b7ede1b... Update studyProgress.txt
