@@ -15,4 +15,4 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-1
        start: p82
-       end: p97
+       end: p99   before Boolean Indexing
