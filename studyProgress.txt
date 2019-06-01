@@ -9,18 +9,10 @@ Python for Data Analysis, 2nd Edition
        start: p15
        end: p54
 
-2019-5-30
+2019-5-31
        start: p53
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-       end: p93
-=======
-       end: p81 
->>>>>>> parent of b7ede1b... Update studyProgress.txt
-=======
-       end: p81 
->>>>>>> parent of b7ede1b... Update studyProgress.txt
-=======
-       end: p81 
->>>>>>> parent of b7ede1b... Update studyProgress.txt
+       end: p82
+
+2019-6-1
+       start: p82
+       end: p95
