@@ -19,4 +19,4 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-2
        start: p99
-       end: p116 before 4.5 Linear Algebra
+       end: p117
