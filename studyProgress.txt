@@ -16,3 +16,7 @@ Python for Data Analysis, 2nd Edition
 2019-6-1
        start: p82
        end: p99   before Boolean Indexing
+
+2019-6-2
+       start: p99
+       end: p103
