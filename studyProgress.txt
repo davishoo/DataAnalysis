@@ -27,5 +27,5 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-4
        start: p143
-       end: p153
+       end: p157
 
