@@ -25,3 +25,7 @@ Python for Data Analysis, 2nd Edition
        start: p117
        end: p143 before 'Selection with loc ...'
 
+2019-6-4
+       start: p143
+       end: p149
+
