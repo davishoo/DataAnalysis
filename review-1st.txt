@@ -6,7 +6,7 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-7
        start: p25
-       end: p71
+       end: p72
 
 
 
