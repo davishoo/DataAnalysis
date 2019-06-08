@@ -8,6 +8,8 @@ Python for Data Analysis, 2nd Edition
        start: p25
        end: p72
 
-
+2019-6-8
+       start: p72
+       end: p79
 
 
