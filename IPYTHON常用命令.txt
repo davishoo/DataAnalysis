@@ -7,7 +7,6 @@ In [13]: import numpy as np
 In [ ]: %run script.py    #Run a Python script inside IPython
 
 
-In [1]: import pandas as pd
-
-In [2]: from pandas import Series, DataFrame
+import pandas as pd
+from pandas import Series, DataFrame
 
