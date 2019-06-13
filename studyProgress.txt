@@ -38,5 +38,12 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-13
        start: p173
-       end: p183
+       end: p187
+
+2019-6-14
+       start: p187
+       end: p192
+
+
+
 
