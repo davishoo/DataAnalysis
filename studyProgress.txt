@@ -38,5 +38,5 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-13
        start: p173
-       end: p173
+       end: p180
 
