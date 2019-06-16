@@ -1,12 +1,14 @@
 In [17]: %pwd
 Out[17]: 'D:\\file\\python\\dataAnalysis\\temp'
 
-
-In [13]: import numpy as np
-
 In [ ]: %run script.py    #Run a Python script inside IPython
 
 
+
+
+import numpy as np
 import pandas as pd
 from pandas import Series, DataFrame
+
+import matplotlib.pyplot as plt
 
