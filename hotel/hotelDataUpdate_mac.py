@@ -4,7 +4,8 @@ import os
 def sourcePath():
     # import os
     print('Pls specify the path of input file ...')
-    print('Example: D:\\file\\python\\AutomatePDF\n\n')
+    print('Example: /Users/Davis/Documents/GitHub/DataAnalysis/hotel')  
+    print('Pls note: this script is for macOS\n\n') 
     path = input()   # call for input
     sourceFolder = os.path.abspath(path) # make sure the path is absolute one
     return sourceFolder
@@ -22,7 +23,7 @@ level_2 = ('酒店名称', '酒店位置', '详细地址', '前台电话', '客�
 
 hotelDF.columns = [list(level_1), list(level_2)]  # restructure column names
 
-outputPath = r'C:\Users\deand\pythonScripts\hotel\data'
+outputPath = '/Users/Davis/Documents/hami/hotelDB'
 
 os.chdir(outputPath) # designate  output  path
 
