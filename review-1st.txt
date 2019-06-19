@@ -33,5 +33,15 @@ Python for Data Analysis, 2nd Edition
        start: p167
        end: 170
 
+2019-6-18
+       start: p170
+       end: 190 / only review csv and skip other parts
+
+2019-6-19
+       start: p190
+       end: 1??
+
+
+
 
 
