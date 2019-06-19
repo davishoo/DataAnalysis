@@ -39,12 +39,8 @@ Python for Data Analysis, 2nd Edition
 
 2019-6-19
        start: p190
-<<<<<<< Updated upstream
-       end: 1??
-=======
        end: 204
 
->>>>>>> Stashed changes
 
 
 
