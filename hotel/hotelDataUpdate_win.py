@@ -16,9 +16,9 @@ absPath =  os.path.join(sourcePath(),sourceFile)
 inputObj = pd.ExcelFile(absPath)    # specify input data source
 hotelDF = pd.read_excel(inputObj, 'Sheet1')
 
-level_1 = (('基本信息',) * 5) + (('酒店销售',) * 6)
-level_2 = ('酒店名称', '酒店位置', '详细地址', '前台电话', '客房总数', '姓名', 
-                    '手机', '座机', '微信','QQ','Email')
+level_1 = ('Key',) * 2 + ('基本信息',) * 4 + ('酒店销售',) * 6              # define column name of level_1
+level_2 = ('HotelName', '酒店名称', '酒店位置', '详细地址', '前台电话', '客房总数', '姓名',
+                    '手机', '座机', '微信','QQ','Email')      # define column name of level_2
 
 hotelDF.columns = [list(level_1), list(level_2)]  # restructure column names
 
@@ -34,7 +34,7 @@ output.to_excel(writer, 'Sheet1')
 writer.save()
 
 writer = pd.ExcelWriter('酒店基本信息表.xlsx')
-output.基本信息.to_excel(writer, 'Sheet1', index = False)
+output[['Key', '基本信息']].to_excel(writer, 'Sheet1', index = True)
 writer.save()
 
 print('Done!')
