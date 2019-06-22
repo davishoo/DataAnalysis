@@ -8,9 +8,11 @@ Sams Teach Yourself SQL in 10 Minutes, 4nd Edition
 
 2019-6-21
        start: p24
-       end: p24
+       end: p26
       
-
+2019-6-22
+       start: p26
+       end: p47
 
 
 
