@@ -12,7 +12,7 @@ Sams Teach Yourself SQL in 10 Minutes, 4nd Edition
       
 2019-6-22
        start: p26
-       end: p47
+       end: p116
 
 
 
