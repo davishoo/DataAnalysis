@@ -14,6 +14,9 @@ Sams Teach Yourself SQL in 10 Minutes, 4nd Edition
        start: p26
        end: p116
 
+2019-6-23
+       start: p116
+       end: p158
 
 
 
