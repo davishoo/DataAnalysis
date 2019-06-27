@@ -10,7 +10,7 @@ def sourcePath():
     return sourceFolder
 
 sourceFile = 'hotelData.xlsx' 
-absPath =  os.path.join(sourcePath(),sourceFile)
+absPath = os.path.join(sourcePath(),sourceFile)
 
     
 inputObj = pd.ExcelFile(absPath)    # specify input data source
