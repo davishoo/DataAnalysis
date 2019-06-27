@@ -12,6 +12,10 @@ PostgreSQL 11.3 Documentation
 
 2019-6-26
        start: p9
-       end: p37
+       end: p51
 
+2019-6-27
+       1st: p51 - 55 
+       review: p1 - 7
+    
 
