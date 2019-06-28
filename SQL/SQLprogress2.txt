@@ -16,6 +16,10 @@ PostgreSQL 11.3 Documentation
 
 2019-6-27
        1st: p51 - 55 
-       review: p1 - 8
+       1st: p458 14.4
+
+       review: p1 - 9
+
+2019-6-28
     
 
