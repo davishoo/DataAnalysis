@@ -24,4 +24,4 @@ PostgreSQL 11.3 Documentation
        review: p9 - 16
 
 2019-6-29
-       review: p16 - 17
+       review: p16 - 32
