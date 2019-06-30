@@ -18,10 +18,13 @@ PostgreSQL 11.3 Documentation
        1st: p51 - 55 
        1st: p458 14.4
 
-       review: p1 - 9
+       review: p1 - 9 (1st run)
 
 2019-6-28
-       review: p9 - 16
+       review: p9 - 16 (1st run)
 
 2019-6-29
-       review: p16 - 39
+       review: p16 - 41 (1st run)
+
+2019-6-30
+       review: p41 - 49 (1st run)  -- skim 4.2.8. Window Function Calls
