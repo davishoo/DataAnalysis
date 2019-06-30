@@ -1,22 +1,19 @@
 PostgreSQL 11.3 Documentation
 
 2019-6-20
-       start: front cover
-       end: p'xxxvi'
+       fresh: front cover - p'xxxvi'
       
 
 2019-6-25
-       start: p'xxxvi'
-       end: p9
+       fresh: p'xxxvi' - p9
 
 
 2019-6-26
-       start: p9
-       end: p51
+       fresh: p9 - 51
 
 2019-6-27
-       1st: p51 - 55 
-       1st: p458 14.4
+       fresh: p51 - 55 
+       fresh: p458 14.4
 
        review: p1 - 9 (1st run)
 
@@ -27,4 +24,4 @@ PostgreSQL 11.3 Documentation
        review: p16 - 41 (1st run)
 
 2019-6-30
-       review: p41 - 49 (1st run)  -- skim 4.2.8. Window Function Calls
+       review: p41 - 51 (1st run)  -- skim 4.2.8. Window Function Calls
