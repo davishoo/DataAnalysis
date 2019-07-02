@@ -23,4 +23,12 @@ PostgreSQL 11.3 Documentation
        review: p41 - 52 (1st)  -- skim 4.2.8. Window Function Calls
 
 2019-7-1
-       review: p52 - 52 (1st) 
+       review: p52 - 55 before 4.3 Calling Function (1st) 
+
+2019-7-2
+       fresh: p55 - 60
+
+
+
+
+
