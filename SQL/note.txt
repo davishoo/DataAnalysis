@@ -1,0 +1,10 @@
+PostgreSQL 11.3 Documentation
+
+useful tips:
+
+Check Constraints  - 5.3.1
+
+CREATE TABLE products (product_no integer,name text,price numeric CHECK (price > 0));
+
+
+
