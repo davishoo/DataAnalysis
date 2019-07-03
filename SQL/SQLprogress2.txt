@@ -29,7 +29,7 @@ PostgreSQL 11.3 Documentation
        fresh: p55 - 67 before 5.4 System Columns
 
 2019-7-3
-       fresh: p67 - 73
+       fresh: p67 - 75
 
 
 
