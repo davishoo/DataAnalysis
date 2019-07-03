@@ -26,7 +26,10 @@ PostgreSQL 11.3 Documentation
        review: p52 - 55 before 4.3 Calling Function (1st) 
 
 2019-7-2
-       fresh: p55 - 60
+       fresh: p55 - 67 before 5.4 System Columns
+
+2019-7-3
+       fresh: p67 - 73
 
 
 
