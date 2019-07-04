@@ -34,7 +34,7 @@ PostgreSQL 11.3 Documentation
 
 2019-7-4
        review(1st): 76 - 77
-       fresh: p77 - 85
+       fresh: p77 - 102 skip 5.10 Table Partitioning
 
 
 
