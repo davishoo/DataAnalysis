@@ -11,25 +11,30 @@ PostgreSQL 11.3 Documentation
 
 2019-6-27
        fresh: p51 - 55 , p458 14.4
-       review: p1 - 9 (1st)
+       review (1st): p1 - 9 
 
 2019-6-28
-       review: p9 - 16 (1st)
+       review (1st): p9 - 16 
 
 2019-6-29
-       review: p16 - 41 (1st)
+       review (1st): p16 - 41 
 
 2019-6-30
-       review: p41 - 52 (1st)  -- skim 4.2.8. Window Function Calls
+       review (1st): p41 - 52   -- skim 4.2.8. Window Function Calls
 
 2019-7-1
-       review: p52 - 55 before 4.3 Calling Function (1st) 
+       review (1st): p52 - 55 before 4.3 Calling Function 
 
 2019-7-2
        fresh: p55 - 67 before 5.4 System Columns
 
 2019-7-3
-       fresh: p67 - 75
+       fresh: p67 - 77
+       review (1st): p71 5.6. Privileges - 76
+
+2019-7-4
+       review(1st): 76 - 77
+       fresh: p77 - 82
 
 
 
