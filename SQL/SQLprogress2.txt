@@ -37,7 +37,10 @@ PostgreSQL 11.3 Documentation
        fresh: p77 - 104 skip 5.10 Table Partitioning
 
 2019-7-5 
-       fresh: p104 - 109
+       fresh: p104 - 110
+
+2019-7-6
+       fresh: p110 - 121 before 7.4. Combining Queries
 
 
 
