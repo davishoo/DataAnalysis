@@ -1,0 +1,58 @@
+CREATE SCHEMA history
+    AUTHORIZATION davis;
+
+
+-- create history table
+CREATE TABLE history.hotel_test
+(
+    LIKE public.hotel_test
+        INCLUDING DEFAULTS
+        INCLUDING CONSTRAINTS
+        INCLUDING INDEXES,
+
+    ts timestamp with time zone NOT NULL DEFAULT current_timestamp,
+    "user" text NOT NULL DEFAULT current_user
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE history.hotel_test
+    OWNER to davis;
+
+-- create history table
+CREATE TABLE history.hotel_test
+(
+    LIKE public.hotel_test
+        INCLUDING DEFAULTS
+        INCLUDING CONSTRAINTS
+        INCLUDING INDEXES,
+
+    "disable_time" timestamp with time zone NOT NULL DEFAULT current_timestamp,
+    "disabled_by" text NOT NULL DEFAULT current_user
+)
+;
+
+
+
+
+
+-- 插入数据
+INSERT INTO history.hotel_test(
+	hotel_id, hotel_name)
+	VALUES ('hk-1', 'test');
+
+
+-- 插入时间戳，用户信息
+ALTER TABLE public.hotel_test
+    ADD COLUMN "生效时间" timestamp with time zone NOT NULL DEFAULT current_timestamp;
+
+ALTER TABLE public.hotel_test
+    ADD COLUMN "修改用户"  text NOT NULL DEFAULT current_user;
+
+
+
+
+
+
+
