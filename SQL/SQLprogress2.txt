@@ -56,4 +56,7 @@ PostgreSQL 11.3 Documentation
 2019-7-15
        fresh: p256 - 292
 
+2019-7-17
+       fresh: p292 - 294
+
 
