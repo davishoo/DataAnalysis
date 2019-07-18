@@ -4,6 +4,8 @@ import re
 # import sqlalchemy
 from sqlalchemy import create_engine
 import psycopg2
+import time
+timeStamp = time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(time.time()))
 
 
 def psycopg2_cur():  # 创建psycopg2游标对象
@@ -66,7 +68,9 @@ def df_data_munge(df_name):
     try:
         col_list.remove('客房总数')       # 只处理字符类型的列，"客房总数"的数据类型是int
     except AttributeError:
-        print('\nWarning: can not remove column "客房总数". Maybe it does not exist in the input file.\n')
+        print("""
+                Warning: can not remove column "客房总数"!
+                Maybe it does not exist in the input file.\n""")
         pass
     count = 0
     for col in col_list:
@@ -99,21 +103,35 @@ def key_word_check(df_name, sql_engine, target_table, buff_table):
         cond1 = (row_j['hotel_id'] == df_ref.loc[0, 'hotel_id'])
         cond2 = (row_j['hotel_name'] == df_ref.loc[0, 'hotel_name'])
         cond3 = (row_j['酒店名称'] == df_ref.loc[0, '酒店名称'])
-        if cond1 and cond2 and cond3:
-            df_ref.to_sql(buff_table, con=sql_engine, schema='buffer', index=False, if_exists='append')
+        if cond1 and cond2 and cond3:        # 正确的数据写入buffer
+            df_ref.to_sql(buff_table,
+                          con=sql_engine,
+                          schema='buffer',
+                          index=False,
+                          if_exists='append')
             print('Old data copied to buffer!\n')
             print(df_ref)
         else:
             print('Warning: data mismatch found！ Pls check input row for hotel_id = \'%s\'\n' % row_j['hotel_id'])
-            print(row_j.to_frame().T)
+            problem_row = row_j.to_frame().T
+            print(problem_row)
+            with open(r'C:\sql\sql_update_log.txt', 'w') as f:    # 有问题的数据写入log文件
+                f.write(timeStamp + '\n')
+                f.write(problem_row + '\n')
+            df_name.drop([index_j], inplace=True)
 
 
-key_word_check(df, engine, 'public.hotel_test', 'hotel_test')
-# TO DO: 检查失败的行从DataFrame中删除
+key_word_check(df,
+               sql_engine=engine,
+               target_table='public.hotel_test',
+               buff_table='hotel_test')
+
 print('Key word check finished successfully!')
 
 
-def update_database(df_name, sql_conn, sql_cursor, updated_table, primary_key, keyword_1, keyword_2):
+def update_database(
+                    df_name, sql_conn, sql_cursor, updated_table,
+                    primary_key='hotel_id', keyword_1='hotel_name', keyword_2='酒店名称'):
     """使用输入数据覆盖数据库原来的记录，并加入时间戳和操作员，参数说明如下：
     df_name: 由输入数据转换过来的DataFrame
     sql_conn, sql_cursor: psycopg2_cur() 函数生成的库连接和游标对象
@@ -126,26 +144,86 @@ def update_database(df_name, sql_conn, sql_cursor, updated_table, primary_key, k
     df_col_list.remove(keyword_2)
     print('\nStart to update designated columns: \n %s' % df_col_list)
     count = 0
-    for updated_col in df_col_list:
+    for updated_col in df_col_list:        # 更新数据库记录
         for index_k, row_k in df_name.iterrows():
-            sql_com_1 = '''UPDATE {} SET "{}" = %s WHERE hotel_id = %s; '''.format(updated_table, updated_col)
+            sql_com_1 = """ 
+                        UPDATE {0} 
+                        SET "{1}" = %s 
+                        WHERE hotel_id = %s; """.format(updated_table, updated_col)
             sql_cursor.execute(sql_com_1, (row_k[updated_col], row_k[primary_key]))
             count += 1
     sql_conn.commit()
     for index_n, row_n in df_name.iterrows():            # 加入时间戳和修改用户
-        sql_com_2 = '''UPDATE {} SET "生效时间" = current_timestamp , "修改用户" = current_user
-                    WHERE {} = '{}'; '''.format(updated_table, primary_key, row_n[primary_key])
+        sql_com_2 = """ 
+                    UPDATE {0} 
+                    SET "生效时间" = current_timestamp , "修改用户" = current_user
+                    WHERE {1} = '{2}'; """.format(updated_table, primary_key, row_n[primary_key])
         sql_cursor.execute(sql_com_2)
     sql_conn.commit()
     print('\n\nDone! Total updated values: %s\n\n' % count)
 
 
-update_database(df, con, cur, 'public.hotel_test', 'hotel_id', 'hotel_name', '酒店名称')
+update_database(df,
+                sql_conn=con,
+                sql_cursor=cur,
+                updated_table='public.hotel_test'
+                )
+
 print('Database updated successfully!')
 
-# TO DO: 将buffer schema里table里的数据复制到history schema里的对应table，并加入时间戳和操作员
+
+def backup_old_data(buf_tab,
+                    sql_engine=engine,
+                    sql_cursor=con,
+                    schema='buffer.'):
+    """
+    将buffer schema里table里的数据复制到
+    history schema里的对应table，并加入时间戳和操作员
+    buf_table: schema 'buffer' 里的table name
+    sql_engine:
+    return: None
+    """
+    qualified_tab = schema + buf_tab
+    source_tab = 'public.' + buf_tab
+    create_bk_tab = """
+                    CREATE TABLE IF NOT EXISTS {0}
+                    (
+                    LIKE {1}
+                    INCLUDING DEFAULTS
+                    INCLUDING CONSTRAINTS
+                    INCLUDING INDEXES,
+
+                    "disable_time" timestamp with time zone NOT NULL DEFAULT current_timestamp,
+                    "disabled_by" text NOT NULL DEFAULT current_user
+                    )
+                    ;
+                    """.format(qualified_tab, source_tab)
+
+    sql_cursor.execute(create_bk_tab)
+
+    sql_comm = """SELECT * FROM {}""".format(buf_tab)
+    df_buff = pd.read_sql(sql_comm, con=sql_engine)  # 将buff里的数据取出
+
+    # TO TO: 插入2列, "disable_time", "disabled_by"
+    df_buff['disable_time'] = pd.NaT
+    df_buff['disabled_by'] = None
+
+    # 将DataFrame数据写入备份库
+    df_buff.to_sql(buf_tab,
+                   con=sql_engine,
+                   schema='history',
+                   index=False,
+                   if_exists='append'
+                   )
+
+
+# TO DO: 清空buffer里的数据
+
 
 con.close()
-
+print("""
+------- Data update is finished successfully!
+------- Script reaches the end!"""
+      )
 
 
