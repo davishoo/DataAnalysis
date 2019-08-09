@@ -52,6 +52,10 @@ Python for Data Analysis, 2nd Edition
        start: p235
        end: p262
 
+2019/8/8 
+	start: cover
+	end: p4
+
 
 
 
