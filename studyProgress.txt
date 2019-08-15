@@ -57,8 +57,13 @@ Python for Data Analysis, 2nd Edition
 	end: p4
 
 2019-8-11
-       s: p4
-       e: p12
+    s: p4
+    e: p12
+
+2019-8-14
+	s: p12
+	e: p20
+
 
 
 
